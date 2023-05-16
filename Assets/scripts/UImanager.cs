@@ -14,6 +14,8 @@ public class UImanager : MonoBehaviour
     public GameObject countText;
     public TextMeshProUGUI timerText;
     public GameObject youLostText;
+    public GameObject AdDisplay;
+
 
     public float timerGameOver;
     private float timePenalty;
@@ -69,9 +71,11 @@ public class UImanager : MonoBehaviour
         endPanel.SetActive(true);
         if (timerGameOver > 0) {
             youWonText.SetActive(true);
+            AdDisplay.GetComponent<AdDisplay>().adStarted = true;
         } else {
             youLostText.SetActive(true);
             endPanel.GetComponent<Image>().color = new Color(255,0,0, (float) 0.6);
+            AdDisplay.GetComponent<AdDisplay>().adStarted = true;
         };
         countText.SetActive(false);
         player.SetActive(false);
